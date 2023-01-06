@@ -1,0 +1,30 @@
+$white_background: #F5F5F5;
+$background: #F8F8F8;
+$ultra_white_background: #FFFFFF;
+$welcome_font: #ebe7e7;
+$nav_font_color: #ffffff;
+$red: #DA1B0C;
+$darkRed:#9c1209;
+
+@mixin navFont
+{
+    color: $nav_font_color;
+    font-family: "raleway", "arial";
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@mixin baseFont{
+    font-family: 'Plus Jakarta Sans','arial';
+}
+@mixin smallFont{
+    @include baseFont;
+    font-size: small;
+    font-weight: lighter;
+}
+
+@mixin linkFont
+{
+    text-decoration: none;
+    color: #ffffff;
+}

@@ -1,0 +1,28 @@
+@use './colorsFonts.scss';
+@forward './navigation.scss';
+@forward './foot.scss';
+@forward './main.scss';
+@forward './dissappear.scss';
+@forward './galery.scss';
+body{
+    background-color: colorsFonts.$white_background;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    overflow-x: hidden;
+    @include colorsFonts.baseFont;
+}
+
+.navPlaceholder{
+    display:block;
+    @media only screen and (min-width: 821px)  {
+        height: 120px;
+      }
+      @media screen and (max-width: 820px) {
+        height: 60px;
+      }
+}
+
+footer{
+   @include colorsFonts.smallFont;
+}
+

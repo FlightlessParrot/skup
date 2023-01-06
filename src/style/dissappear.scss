@@ -1,0 +1,21 @@
+
+.dissappear-enter{
+    opacity: 0;
+}
+.dissappear-enter-active{
+    opacity: 1;
+    transition: all 500ms;
+}
+.dissappear-exit{
+    opacity: 1;
+}
+.dissappear-exit-active{
+    opacity: 0;
+    transition: all 500ms;
+}
+.dissappear-exit-done{
+    opacity: 0;
+}
+.dissappear-enter-done{
+    opacity: 1;
+}

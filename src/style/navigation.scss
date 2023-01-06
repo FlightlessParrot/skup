@@ -1,0 +1,74 @@
+@use "./colorsFonts.scss";
+
+nav {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  border-bottom: 2px solid rgba(252, 252, 252, 0.24);
+  background-color: black;
+  background: url(../images/head_warp.png);
+  background-position: top center;
+  align-items: stretch;
+  justify-content: flex-start;
+  z-index: 10;
+  @include colorsFonts.navFont;
+  @media only screen and (min-width: 821px)  {
+    min-height: 100px;
+  }
+  @media screen and (max-width: 820px) {
+    min-height: 50px;
+  }
+  img {
+    @media only screen and (min-width: 821px) {
+      width: 250px;
+    }
+    @media screen and (max-width: 820px) {
+      width: 100px;
+    }
+  }
+  div {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  ul {
+    @media screen and (max-width: 820px) {
+      display: none;
+    }
+    padding: 0px 30px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    li {
+      list-style: none;
+
+      .active {
+        border-bottom: 2px solid colorsFonts.$red;
+      }
+      a {
+        display: inline-block;
+        height: 100%;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 30px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid transparent;
+        @include colorsFonts.navFont;
+        @include colorsFonts.linkFont;
+        &:hover{
+          font-size: large;
+          color:colorsFonts.$red;
+          transition: all 1000ms;
+         
+        }
+      }
+    }
+  }
+}
