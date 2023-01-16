@@ -6,33 +6,65 @@ nav {
   position: fixed;
   top: 0px;
   width: 100%;
-  display: flex;
+  
   border-bottom: 2px solid rgba(252, 252, 252, 0.24);
   background-color: black;
   background: url(../images/head_warp.png);
   background-position: top center;
-  align-items: stretch;
+  
   justify-content: flex-start;
   z-index: 10;
   @include colorsFonts.navFont;
   @media only screen and (min-width: 821px)  {
-    min-height: 100px;
+    min-height: 100px;display: flex;align-items: stretch;
   }
   @media screen and (max-width: 820px) {
+    display: block;
     min-height: 50px;
+    align-items: center;
+    justify-items: right;
   }
+  .mapsNav{display: flex;
+    align-items: stretch;
+    justify-content: center;
+    text-decoration: none;
+    @media screen and (max-width: 820px) {
+      display: none;
+    }
+    
+    
+  button{
+    margin: 20px 20px 20px 20px;
+    padding: 0px 20px 0px 20px;
+    background: rgba($color: gray, $alpha: 0.1);
+    
+    box-shadow: 10px 10px 15px black;
+    @include colorsFonts.navFont;
+        @include colorsFonts.linkFont;
+        font-size: x-large;
+        &:hover{
+        color: colorsFonts.$red;
+        background: rgba($color: gray, $alpha: 0.2);
+        cursor:pointer;
+        }
+  }}
   img {
     @media only screen and (min-width: 821px) {
       width: 250px;
     }
     @media screen and (max-width: 820px) {
-      width: 100px;
+      width: 125px;
     }
   }
   div {
     padding-top: 10px;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 820px) {
+      padding-top: 15px;
+      margin: auto;
+      float: left;
+    }
   }
   ul {
     @media screen and (max-width: 820px) {
@@ -70,5 +102,52 @@ nav {
         }
       }
     }
+  }
+}
+#hamburgerButton{
+  background-color: rgba(white,0.3);
+  float: right;
+  margin: 10px 20px 10px 10px;
+  @media only screen and (min-width: 821px)  {
+    display: none;
+  }
+  @media screen and (max-width: 820px) {
+    display: inherit;
+    width: fit-content;
+    height: fit-content;
+    padding: 4px 4px 4px 4px;
+    img{
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+#mobileNav{
+  position: fixed;
+  align-items: flex-start;
+  justify-content: right;
+  top: 0px;
+  width:100vw;
+  height:100vh;
+  z-index: 9;
+  background-color: rgba(black,0.8); 
+  text-align: right;
+  ul{
+
+    margin-top:100px;
+    margin-right: 30px;
+  }
+  
+  a, li{
+    text-decoration: none;
+    @include colorsFonts.navFont;
+    @include colorsFonts.linkFont;
+    font-size: x-large;
+    list-style: none;
+    line-height: 50px;
+    
+  }
+  .active{
+    border-bottom: 2px solid colorsFonts.$red;
   }
 }

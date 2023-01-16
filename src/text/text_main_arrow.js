@@ -1,16 +1,16 @@
 
 const arrowDivText=[
     {title: 'Skup',
-        text: 'Zakres prowadzonego skupowanych materiałów jest szeroki. Jeśli masz wątpliwości czy skupujemy dany towar, napisz do nas. Chętnie rozwiejemy wszelkie wątpliwości.',
+        text: 'Zakres skupowanych materiałów jest szeroki. Jeśli masz wątpliwości, czy skupujemy dany towar, napisz do nas. Chętnie rozwiejemy wszelkie wątpliwości.',
         key: 1,
     },
     {title: 'Recykling',
-    text: 'Dzięki nam odpady stają się pełnowartościowym produktem. Sprawiamy, że Zero-Waste nie jest tylko hasłem.',
+    text: 'Dzięki nam odpady stają się pełnowartościowym produktem. Sprawiamy, że zero-waste nie jest tylko hasłem.',
     key: 2,
     },
     {title: 'Ekologia',
-    text: 'Korzystając z naszych usług pomagasz chronić środowisko. Zlom i odpady, które do nas trafiają dostają nowe życie i ponownie sa wykorzystywane.'+
-    'Wspólnie możemy zredukować szkodliwy wpływa człowieka na ekosystem.',
+    text: 'Korzystając z naszych usług pomagasz chronić środowisko. Złom i odpady, które do nas trafiają, dostają nowe życie i ponownie są wykorzystywane.'+
+    'Wspólnie możemy zredukować szkodliwy wpływ człowieka na ekosystem.',
     key: 3,
     },
     {title: 'Usługi transportowe',

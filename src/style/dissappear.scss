@@ -1,21 +1,68 @@
 
 .dissappear-enter{
+    position: relative;
     opacity: 0;
+    bottom: -10vh;
+
 }
 .dissappear-enter-active{
     opacity: 1;
-    transition: all 500ms;
+    transition: all 250ms;
+    bottom: 0vw;
+    position: relative;
 }
 .dissappear-exit{
     opacity: 1;
 }
 .dissappear-exit-active{
     opacity: 0;
-    transition: all 500ms;
+    transition: all 250ms;
 }
 .dissappear-exit-done{
     opacity: 0;
+    transition: all 250ms;
 }
 .dissappear-enter-done{
     opacity: 1;
+    transition: all 250ms;
+    position: static;
+}
+
+.dissappear2-enter{
+    position: relative;
+    opacity: 0;
+    bottom: -10vh;
+
+}
+.dissappear2-enter-active{
+    opacity: 1;
+    transition: all 250ms;
+    bottom: 0vw;
+    position: relative;
+}
+.dissappear2-exit{
+    opacity: 1;
+    position: relative;
+    bottom: 0vh;
+    height:auto;
+}
+.dissappear2-exit-active{
+    opacity: 0;
+    height: 0px;
+    transition: all 250ms;
+    position: relative;
+    bottom: 50vh;
+
+
+}
+.dissappear2-exit-done{
+    opacity: 0;
+    height: 0px;
+    transition: all 250ms;
+    position: absolute;
+}
+.dissappear2-enter-done{
+    opacity: 1;
+    transition: all 250ms;
+    position: static;
 }

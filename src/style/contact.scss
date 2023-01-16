@@ -1,0 +1,80 @@
+@use "./colorsFonts.scss";
+
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+.mapParent {
+  display: block;
+  @media screen and (min-width: 1272px) {
+  padding: 20px 20px 20px 20px;
+  grid-column: 2 / span 1;
+  }
+  @media screen and (max-width: 1271)
+  {
+    padding: 10px 8px 10px 8px;
+    
+        grid-row: 1/ span 1;
+            
+  }
+}
+#contactData {
+    @media screen and (min-width: 1272px) {
+        grid-column: 1 / span 1;
+    }
+    @media screen and (max-width: 1271px) {
+grid-row: 1/ span 1;
+    }
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  h1 {
+    justify-content: center;
+  }
+  * {
+    display: flex;
+    align-items: center;
+    justify-items: space-between;
+    span, ul {
+      display: block;
+      @media screen and (min-width: 1272px) {
+        margin-left: 16px;
+        padding-left: 20px;
+      }
+      @media screen and (max-width: 1271px) {
+        margin-left: 8px;
+        padding-left: 10px;
+      }
+      li {
+        margin-bottom: 8px;
+        margin-left: none;
+      }
+    }
+   span{
+    line-height: 26px;
+   }
+  }
+}
+.contactDiv {
+  @media screen and (min-width: 1272px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 600px;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  @media screen and (max-width: 1271px) {
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: 90vw;
+    grid-template-rows: auto 90vh;
+   justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+}

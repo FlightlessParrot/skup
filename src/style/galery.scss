@@ -1,7 +1,21 @@
 @use "./colorsFonts.scss";
+
+#galeryH1{
+  margin: 40px auto 30px auto;
+  text-align: center;
+}
+#galeryH2{
+  text-align: center;
+  font-weight: normal;
+  text-align: center;
+  font-style: italic; 
+  margin: 10px auto 40px auto;
+}
 #centralPhotoDiv {
   padding: 10px 20px 10px 20px;
+  background-color: colorsFonts.$ultra_white_background;
 }
+@media only screen and (min-width: 821px) {
 .threePhotosGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -18,7 +32,7 @@
     column-gap: 20px;
     row-gap: 10px;
   }
-  @media screen and (max-width: 820px) {
+  @media screen and (max-width: 1000px) {
     margin: 20px 0px 20px 0px;
     column-gap: 10px;
     row-gap: 5px;
@@ -28,6 +42,7 @@
   grid-column: 1 / span 2;
   grid-row: 1 / span 2;
   overflow: hidden;
+  background-color: colorsFonts.$white_background;
 }
 .bigPhoto2 {
   display: grid;
@@ -35,18 +50,47 @@
   grid-row: 1 / span 2;
   overflow: hidden;
   order: 3;
+  background-color: colorsFonts.$white_background;
 }
 .smallPhoto {
   overflow: hidden;
   grid-column: 3 / span 2;
+  background-color: colorsFonts.$white_background;
 }
 .smallPhoto2 {
-  display: grid;
+
   overflow: hidden;
   grid-column: 1 / span 2;
   grid-row-start: -1 / span 1;
+  background-color: colorsFonts.$white_background;
+}}
+@media only screen and (max-width: 821px)
+{
+  .threePhotosGrid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    *{
+      margin-top: 10px;
+      margin-bottom:10px;
+      width: 100%;
+      overflow: hidden;
+
+    }
+    .bigPhoto, .bigPhoto2{
+      max-height: 300px;
+    }
+    .smallPhoto, .smallPhoto2{
+      max-height: 170px;
+    }
+  }
 }
-button {
+.smallPhoto, .smallPhoto2, .bigPhoto, .bigPhoto2{
+display: flex;
+align-items: center;
+}
+
+.redButton {
   height: 50px;
   width: 250px;
   font-weight: bold;
@@ -57,6 +101,7 @@ button {
   color: colorsFonts.$nav_font_color;
   margin: 20px auto 20px auto;
   transition: all 500ms;
+  @media screen and (min-width: 1000px) {
   &:hover {
     border: 3px inset black;
     box-shadow: 7px 7px 10px black inset;
@@ -66,5 +111,5 @@ button {
     border-bottom: none;
     border-right: none;
     transition: all 500ms;
-  }
+  }}
 }

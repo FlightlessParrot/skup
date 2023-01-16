@@ -1,23 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
+import { CSSTransition } from "react-transition-group";
+import DisplayedElements from "./displayedElements";
 export default function Photos(props) {
   const [buttonDisplay, setButtonDisplay] = useState("block");
   const [visibleElements, setVisibleElements] = useState(2);
+  const [referemce,setReference]=useState(null)
   const photosArray = props.array.map((element) => <img src={element.photo} key={element.id} />);
   let jsxElements = [];
-
-  for (let x = 0; x < visibleElements; x++) {
-    const photoNumber = x * 3;
-    const divPhotosClass= (x % 2)? ['bigPhoto2','smallPhoto2']:['bigPhoto',"smallPhoto"];
+ const length = photosArray.length;
+  for(let  x=0; x<(length);x+=3)
+  {
     
-
+    const divPhotosClass= (x % 2)? ['bigPhoto2','smallPhoto2']:['bigPhoto',"smallPhoto"];
     jsxElements.push(
-      <div className="threePhotosGrid" key={x}>
-        <div className={divPhotosClass[0]}>{photosArray[photoNumber]}</div>
-        <div className={divPhotosClass[1]}>{photosArray[photoNumber + 1]}</div>
-        <div className={divPhotosClass[1]}>{photosArray[photoNumber + 2]}</div>
-      </div>
+      <CSSTransition
+      key={x} 
+      classNames='dissappear2'
+      timeout={1000}
+      nodeRef={referemce}
+      >
+      <div className="threePhotosGrid" key={x} ref={newReference}> 
+        <div loading='lazy' className={divPhotosClass[0]}>{photosArray[x]}</div>
+        <div loading='lazy' className={divPhotosClass[1]}>{photosArray[x + 1]}</div>
+        <div loading='lazy' className={divPhotosClass[1]}>{photosArray[x + 2]}</div>
+      </div></CSSTransition>
     );
   }
+   
 
   useEffect(() => {
     if (visibleElements * 3 >= photosArray.length) {
@@ -30,12 +39,17 @@ export default function Photos(props) {
       setVisibleElements(() => visibleElements + 1);
     }
   }
+function newReference(ref){
+  setReference(ref)
+
+}
   return (
     <div id="centralPhotoDiv">
-      {jsxElements}
-      <button onClick={clickHandler} style={{ display: buttonDisplay }}>
+       <DisplayedElements JSXElements={jsxElements} visibleElements={visibleElements} /> 
+      <button className="redButton" onClick={clickHandler} style={{ display: buttonDisplay }}>
        Zobacz więcej
       </button>
     </div>
   );
 }
+

@@ -1,69 +1,78 @@
-import { useEffect } from "react";
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link,  Outlet, useLocation, useNavigate } from "react-router-dom";
 import FooterElement from "./warpmodules/footerElement";
 import logo from '../images/logo.png';
-
+import hamburger from '../images/ikonki/hamburger48.png'
+import Links from './warpmodules/links'
+import trainArray from './../additionalData/exPhotosArray'
+import getPhotosArray from "../getFromServer/getPhotosArray";
 export default function Warp(props) {
-const location=useLocation();
-const navigate=useNavigate();
-    
+const [photosArray, setPhotosArray]=useState(trainArray)
+    const [display, setDisplay]=useState('none');
+  const location=useLocation();
+  const navigate=useNavigate();
+
+    useEffect(()=>{
+        getPhotosArray('./server/getJSON.php', setPhotosArray);
+        console.log('download photos array')
+    },[])
+
     useEffect(()=>{
     location.pathname==="/" && navigate("/main")},[location.pathname, navigate])
-
+      function clickHandler()
+      {
+        display==='none'?setDisplay('flex'): setDisplay('none')
+      }
+      
   return (
     <>
-      <nav>
+      <nav id='classicNav'>
         <div>
-          <img src={logo} alt="logo"/>
+          <Link to='main'><img src={logo} alt="logo"/></Link>
         </div>
-        <ul>
-          <li>
-            <NavLink to="main">O{'\u00A0'}NAS</NavLink>
-          </li>
-          <li>
-            <NavLink to="galery">GALERIA</NavLink>
-          </li>
-          <li>
-            <NavLink to="contact">KONTAKT</NavLink>
-          </li>
-          <li>
-            <NavLink to="download">DO POBRANIA</NavLink>
-          </li>
-        </ul>
+        <Link to='contact' className="mapsNav">
+        <button>
+          Zobacz dojazd
+        </button></Link>
+        <Links />
+        <button id='hamburgerButton' onClick={clickHandler}><img id='hamburger'src={hamburger} alt='menu'/></button>
       </nav>
-      <Outlet />
+      <div id='mobileNav' style={{display:display}} onClick={clickHandler}><Links/></div>
+      <Outlet context={photosArray}/>
+      {props.children}
       <footer>
         <div>
           <img src={logo} alt="logo" />
           <p>
             <b>MUSTANG SP. Z O.O.</b>
             <br />
-            <br />
             NIP: 6783198397
             <br />
             KRS: 0000977847
             <br />
             REGON: 522382960
+            <br />
+            Numer rejestrowy BDO: 000032137
           </p>
         </div>
         <FooterElement
-          title="Adres KRS:"
+          title="Siedziba:"
           text1="os. Oświecenia 46A/18"
           text2="31-636 Kraków"
         />
       <FooterElement
-          title="Adres skupu"
-          text1="działka nr ewid.414"
-          text2="Zastowie 32-010"
+          title="Adres skupu/magazyn"
+          text1="Zastowie 32-010"
+          text2="działka nr ewid.414"
         />
         <FooterElement
           title="Kontakt:"
-          text1="tel. 519593956"
+          text1="tel. 519 593 956, 505 999 001"
           text2="mail: biuro@mustang-jk.pl"
         />
         <FooterElement
           title="Godziny otwarcia:"
-          text1="pn-pt: 8:00 - 16:00"
+          text1="pn-pt: 7:00 - 15:00"
           text2={<br/>}
           />
       </footer>

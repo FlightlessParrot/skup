@@ -1,0 +1,23 @@
+@use '../colorsFonts.scss';
+.arrowContainer{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: colorsFonts.$background;
+    padding: 20px 10px 20px 10px;
+.arrowDiv{
+    img{
+        //width: 50px;
+        height: 50px;
+        margin: 0px 10px 0px 10px;
+    }
+    section{
+        flex-shrink: 1;
+    }
+    display: flex;
+    @media screen and (min-width: 821px) {
+      flex-basis: 45%;
+   } 
+    flex-wrap: nowrap;
+    margin: 10px 10px 10px 10px;
+    flex-shrink: 1;
+}}

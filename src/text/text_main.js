@@ -9,12 +9,12 @@ const text = [
   },
   {
     title: "Zakres usług",
-    describe: "Skup prowadzimy na działce nr ewid.414 w Zastowie 32-010",
+    describe: <>Skup prowadzimy na terenie nieruchomości w Zastowie 32-010,działce nr ewid.414  <br /> 
+    <i>Dojazd od ulicy Kantorowickiej 400 {'('}Kraków{')'}</i></>,
     text: (
       <>
         <p>Skupujemy:</p>
         <ul>
-          <li>odpady,</li>
           <li>metale nieżelazne kolorowe i ich stopy:</li>
           <ul>
             <li>miedź</li>
@@ -32,9 +32,11 @@ const text = [
           </ul>
           <li>metale żelazne</li>
           <li>metale szlachetne</li>
-          <li>opakowania z papier – makulatura</li>
+          <li>opakowania z papieru – makulatura</li>
         </ul>
-        <b>Swoim dostawcom zapewniamy transport</b>
+        <b>Swoim dostawcom zapewniamy transport.</ b><br /><br />
+
+      <b>Dysponujemy wagą samochodową do 40 ton.</b>
       </>
     ),
   },

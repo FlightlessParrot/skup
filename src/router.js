@@ -1,8 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
+import React, {Suspense, useEffect} from 'react';
 import Warp from './modules/warp'
-import Main from './modules/main'
-import Galery from './modules/galery';
-
+import { useNavigate } from 'react-router-dom';
+const Main = React.lazy(()=>import('./modules/main'));
+const Galery = React.lazy(()=>import('./modules/galery'));
+const Contact = React.lazy(()=>import('./modules/contact'));
+const Download = React.lazy(()=>import('./modules/download'))
 
 const router=createBrowserRouter([
     {
@@ -11,13 +14,49 @@ const router=createBrowserRouter([
       children: [
         {
           path: "main",
-          element: <Main />,
+          element:<Suspense fallback={<div>Loading...</div>}> <Main /></Suspense> ,
+          errorElement: <Error404 />
         },
         {
           path: "galery",
-          element: <Galery />,
+          element: <Suspense fallback={<div>Loading...</div>}><Galery /></Suspense>,
+          errorElement: <Error404 />
         },
-  ]}
+        {
+          path: "contact",
+          element: <Suspense fallback={<div>Loading...</div>}><Contact /></Suspense>,
+          errorElement: <Error404 />
+        },
+        {
+          path: "download",
+          element: <Suspense fallback={<div>Loading...</div>}><Download /></Suspense>,
+          errorElement: <Error404 />
+        },
+        {
+          path: "index.html",
+          element: <Redirect /> ,
+          errorElement: <Error404 />
+        },
+
+
+  ]},
+  {path: "*",
+      element: (<Error404 />),}
   ]);
 
+    function Error404()
+    {
+      return(<Warp><div className="navPlaceholder"></div> 
+        <h1 style={{color: 'red', textAlign: 'center'}}> Wystąpił błąd!!!</h1></Warp>
+      )
+    }
+
+
+  function Redirect()
+ {
+    const navigate= useNavigate()
+   useEffect(()=>{
+   navigate('/main')},)
+    return(<div></div>);
+  }  
   export {router as default}

@@ -5,47 +5,34 @@ import { useRef } from 'react';
 export default function PhotoText(props)
 {
     const ref=useRef(null)
-    const [image, setImage]=useState(props.photo1);
+
+    const [image, setImage]=useState(props.photos[0].photo);
+    const [counter, setCounter]= useState(0)
    
     useEffect(()=>
     {
-        const photo=choosePhoto(image)
-        let changer=setTimeout(setImage, 8000, photo )
+        const changer=setTimeout(nextPhoto, 5000)
         return(()=>{clearTimeout(changer)
-         console.log(changer)
         })
     },[image])
     
-function choosePhoto(image)
+function nextPhoto()
 {
-    switch(image){
-        case props.photo1:
-        return props.photo2;
-        case props.photo2:
-        return props.photo3;
-        case props.photo3:
-        return props.photo1;
-        default:
-        console.log('błąd')
-    }
-   
+    counter<(props.photos.length-1) ? setImage(props.photos[counter+1].photo): setImage(props.photos[0].photo);
+   counter<(props.photos.length-1) ? setCounter(()=>counter+1):setCounter(0);
 } 
-function switcher()
-    {
-        const change=choosePhoto(image)
-        setImage(change)
-    }
+
     
     return(
         <SwitchTransition>
         <CSSTransition
         nodeRef={ref}
         classNames='dissappear'
-        timeout={1200}
+        timeout={600}
         key={image}
         >
         <div className='mainPhotoDiv' style={{flexDirection: props.way}}>
-        <div className='placeholder'><img className='mainPhotos' src={image} alt='Zdjęcie pokazujące działalność skupu' ref={ref} onClick={switcher}/></div>
+        <div className='placeholder'><img loading='lazy' className='mainPhotos' src={image} alt='Zdjęcie pokazujące działalność skupu' ref={ref} onClick={nextPhoto}/></div>
         <section>
             <h3> {props.describe}</h3>
             <h2>{props.title}</h2>
