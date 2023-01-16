@@ -1,0 +1,36 @@
+@use './colorsFonts.scss';
+
+.downloadTitleDiv{
+    margin: 30px 0px 30px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: colorsFonts.$ultra_white_background;
+}
+
+.downloads{
+    margin: 30px 0px 30px 0px;
+    display: flex;
+    justify-content: space-around;
+.downloadLink{
+
+.downloadFile{
+    margin: 20px 20px 20px 20px;
+    padding: 20px 15px 20px 15px;
+display: flex;
+align-items: center;
+justify-items: space-around;
+background-color: colorsFonts.$ultra_white_background;
+width: fit-content;
+border-radius: 20px;
+box-shadow: 15px 15px 20px black;
+border: 2px solid colorsFonts.$red;
+p{
+    padding-left: 10px;
+}
+&:hover{
+   
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+}}}
