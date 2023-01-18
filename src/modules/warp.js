@@ -56,13 +56,13 @@ const [photosArray, setPhotosArray]=useState(trainArray)
           </p>
         </div>
         <FooterElement
-          title="Siedziba:"
+          title="Siedziba i adres korespondencyjny:"
           text1="os. Oświecenia 46A/18"
           text2="31-636 Kraków"
         />
       <FooterElement
           title="Adres skupu/magazyn"
-          text1="Zastowie 32-010"
+          text1="Zastów 32-010"
           text2="działka nr ewid.414"
         />
         <FooterElement
