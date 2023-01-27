@@ -1,38 +1,38 @@
 const trainArray=[
     {
-        photo: './images/wozki.jpg',
+        photo: '/images/wozki.jpg',
         title: 'Title',
-        id: '1'
+        id: '01'
     },
     {
-        photo: './images/puszki.jpg',
+        photo: '/images/puszki.jpg',
         title: 'Title',
-        id: '2'
+        id: '00'
     },
     {
-        photo: './images/wozek.jpg',
+        photo: '/images/wozek.jpg',
         title: 'Title',
-        id: '3'
+        id: '000'
     },
     {
-        photo: './images/puszki.jpg',
+        photo: '/images/puszki.jpg',
         title: 'Title',
-        id: '4'
+        id: '0000'
     },
     {
-        photo: './images/wozki.jpg',
+        photo: '/images/wozki.jpg',
         title: 'Title',
-        id: '5'
+        id: '00000'
     },
     {
-        photo: './images/puszki.jpg',
+        photo: '/images/puszki.jpg',
         title: 'Title',
-        id: '6'
+        id: '000000'
     },
     {
-        photo: './images/wozek.jpg',
+        photo: '/images/wozek.jpg',
         title: 'Title',
-        id: '7'
+        id: '00000000'
     }
 ]
 export {trainArray as default}

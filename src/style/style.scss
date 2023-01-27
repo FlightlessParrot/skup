@@ -6,6 +6,7 @@
 @forward './galery.scss';
 @forward './contact.scss';
 @forward './download.scss';
+@forward './admin.scss';
 body{
     background-color: colorsFonts.$white_background;
     padding: 0px 0px 0px 0px;
@@ -17,10 +18,10 @@ body{
 .navPlaceholder{
     display:block;
     @media only screen and (min-width: 821px)  {
-        height: 120px;
+        height: 121px;
       }
       @media screen and (max-width: 820px) {
-        height: 60px;
+        height: 80px;
       }
 }
 

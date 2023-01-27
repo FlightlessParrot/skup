@@ -1,7 +1,5 @@
 import Photos from "./galerymodules/photos";
-import trainArray from "../additionalData/exPhotosArray"
-import getPhotosArray from "../getFromServer/getPhotosArray";
-import { useEffect, useState } from "react";
+
 import { useOutletContext } from "react-router-dom";
 export default function Galery(props)
 {
