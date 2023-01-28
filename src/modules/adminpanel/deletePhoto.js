@@ -5,7 +5,7 @@ export default async function deletePhoto(id, login, password, setInfo)
     const cred='basic '+btoa(login+':'+ password);
     console.log(id)
     try{
-    const response = await fetch('/skupServer/deletePhoto.php?id='+id,
+    const response = await fetch('/server/deletePhoto.php?id='+id,
     {
         
         method: "delete",

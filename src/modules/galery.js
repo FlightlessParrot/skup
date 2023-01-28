@@ -3,8 +3,8 @@ import Photos from "./galerymodules/photos";
 import { useOutletContext } from "react-router-dom";
 export default function Galery(props)
 {
-  const photosArray=useOutletContext();
-  console.log(photosArray);
+  const photosArray=useOutletContext()[0];
+ 
     return(<>
     
        <div className="navPlaceholder"></div>

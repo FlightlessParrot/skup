@@ -16,7 +16,7 @@ import textUpperArrow from "../text/text_main_upper_arrow"
 import { useOutletContext } from "react-router-dom"
 export default function Main()
 {
-    const photosArray=useOutletContext();
+    const photosArray=useOutletContext()[0];
     return(
         <>
         <div className="mainImg">

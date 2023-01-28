@@ -5,7 +5,7 @@ export default async function sendPhoto(login, password, setInfo, file)
 
     formData.append("file",file)
     try{
-    const response = await fetch('/skupServer/sendPhoto.php',
+    const response = await fetch('/server/sendPhoto.php',
     {
         
         method: "post",

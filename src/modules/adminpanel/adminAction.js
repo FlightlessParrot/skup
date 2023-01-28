@@ -8,7 +8,7 @@ export default async function action({params,request})
     const cred= 'basic '+btoa(data.get('login')+':'+ data.get('password'))
       console.log(data.get('login')+':'+ data.get('password'))
     const eventData={login: data.get('login'), password: data.get('password')}
-    const response = await fetch('/skupServer/login.php',
+    const response = await fetch('/server/login.php',
     {
         
         method: request.method,

@@ -13,11 +13,17 @@ export default function Panel(props)
            {
            deletePhoto(remove, props.login, props.password, setInfo);
             setRemove('');
-            setConfirmation(false);}
+            setConfirmation(false);
+           }
         },[confirm]
     )
     useEffect(
         ()=>setInfo(''),[remove]
+    )
+    useEffect(
+        ()=>{
+            window.scrollTo(0,0)
+        props.setDownloadPhotos({})},[info]
     )
     const jsxElements=props.photosArray.map(
         (element)=><div key={element.id} className='removerDiv'>
@@ -29,7 +35,7 @@ export default function Panel(props)
         
         <div className="panelInfo">{info===true &&<b style={{color:'green'}}>Operacja zakończona sukcesem</b>}
         {(info!=='' && info !==true) && <b style={{color:'red'}}>Wystąpił błąd</b>}</div>
-        <AddPhoto setInfo={setInfo} login={props.login} password={props.password}/>
+        <AddPhoto setInfo={setInfo} login={props.login} password={props.password} />
         <div>
             {jsxElements}
         </div>

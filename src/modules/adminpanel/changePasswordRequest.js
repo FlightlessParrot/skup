@@ -4,7 +4,7 @@ export default async function changePasswordRequest(newPassword, login, password
 {
     const cred='basic '+btoa(login+':'+ password);
     try{
-    const response = await fetch('/skupServer/change_password.php',
+    const response = await fetch('/server/change_password.php',
     {
         
         method: "put",
@@ -21,7 +21,7 @@ export default async function changePasswordRequest(newPassword, login, password
       console.log(response);
       throw new Error(`Błąd status: ${response.status}`);
     }
-     const answer= await response.text();
+     const answer= await response.json();
     console.log(answer)
     setError('Zmieniono hasło. Okno zostanie za chwilę zamknięte')
     setTimeout(closeWindow,4500, false)

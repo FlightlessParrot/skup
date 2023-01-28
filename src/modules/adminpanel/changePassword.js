@@ -18,7 +18,6 @@ export default function ChangePassword(props)
 
     },[sendRequest]
   )
-
 function submitHandler(e)
   {
     e.preventDefault();

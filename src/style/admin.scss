@@ -13,6 +13,8 @@
     flex-direction: column;
         img {
         width: 300px;
+        max-height: 500px;
+        object-fit: contain;
         margin-top: 30px;
         @media screen and (max-width: 1271px) {
             width:200px;
@@ -154,11 +156,11 @@
 
     .confirm {
         max-width: 80vw;
-        max-height: 80vw;
+        max-height: 80vh;
 
         @media screen and (max-width: 1271px) {
             max-width: 90vw;
-            max-height: fit-content;
+            max-height: 90vh;
         }
 
         opacity: 1;
@@ -178,6 +180,7 @@
 
             img {
                 margin: 20px 20px 20px 20px;
+                max-height: 50vh;
             }
         }
 
@@ -189,6 +192,7 @@
 
             img {
                 margin: 20px 20px 20px 20px;
+                max-height: 200px;
             }
 
             .divButton {

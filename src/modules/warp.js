@@ -11,11 +11,11 @@ const [photosArray, setPhotosArray]=useState(trainArray)
     const [display, setDisplay]=useState('none');
   const location=useLocation();
   const navigate=useNavigate();
-
+  const[downloadPhotos, setDownloadPhotos] = useState(0)
     useEffect(()=>{
         getPhotosArray('./server/getJSON.php', setPhotosArray);
         console.log('download photos array')
-    },[])
+    },[downloadPhotos])
 
     useEffect(()=>{
     location.pathname==="/" && navigate("/main")},[location.pathname, navigate])
@@ -38,7 +38,7 @@ const [photosArray, setPhotosArray]=useState(trainArray)
         <button id='hamburgerButton' onClick={clickHandler}><img id='hamburger'src={hamburger} alt='menu'/></button>
       </nav>
       <div id='mobileNav' style={{display:display}} onClick={clickHandler}><Links/></div>
-      <Outlet context={photosArray}/>
+      <Outlet context={[photosArray, setDownloadPhotos ]}/>
       {props.children}
       <footer>
         <div>
@@ -52,7 +52,7 @@ const [photosArray, setPhotosArray]=useState(trainArray)
             <br />
             REGON: 522382960
             <br />
-            Numer rejestrowy BDO: 000032137
+            Numer rejestrowy BDO: 000585637
           </p>
         </div>
         <FooterElement

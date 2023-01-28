@@ -6,7 +6,8 @@ import ChangePassword from "./adminpanel/changePassword";
 const Panel=React.lazy(()=>import('./adminpanel/panel'))
 export default function Login() {
   const navigate= useNavigate();
-    const photosArray = useOutletContext();
+    const photosArray = useOutletContext()[0];
+    const setDownloadPhotos= useOutletContext()[1]
     const [password, setPassword]=useState(false)
   const initValue = {
     login: "",
@@ -43,6 +44,7 @@ export default function Login() {
   {
     dispatch({type:''})
     navigate('/admin')
+    setDownloadPhotos(0)
   }
 
   return (
@@ -89,8 +91,8 @@ export default function Login() {
         <button className='redButton' onClick={logout}>Wyloguj</button><button className="redButton" onClick={()=>setPassword(true)}>Zmień hasło</button></>
     }
       </div>
-      {password && <ChangePassword login={value.sendLogin} password={value.sendPassword} closeWindow={setPassword} logout={logout}/>}
-      {data?.answer===true &&<Suspense fallback={<div>Loading...</div>}>   <Panel login={value.sendLogin} password={value.sendPassword} photosArray={photosArray} /> </Suspense>}
+      {password && <ChangePassword login={value.sendLogin} password={value.sendPassword} closeWindow={setPassword} logout={logout} />}
+      {data?.answer===true &&<Suspense fallback={<div>Loading...</div>}>   <Panel login={value.sendLogin} password={value.sendPassword} photosArray={photosArray} setDownloadPhotos={setDownloadPhotos}/> </Suspense>}
     </>
   );
 }
